@@ -1,0 +1,86 @@
+﻿  cl : warning della riga di comando D9035 : l'opzione 'Zc:forScope-' è deprecata e verrà rimossa in una futura versione
+  AllPassFilter.cpp
+E:\FoxSuite\fox-suite-blocks\src\AllPassFilter.cpp(23,23): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  CombFilter.cpp
+E:\FoxSuite\fox-suite-blocks\src\CombFilter.cpp(28,23): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+  Delay.cpp
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(16,25): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(30,25): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(39,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(42,23): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(60,20): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(63,23): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(85,22): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(95,33): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(131,21): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Delay.cpp(152,24): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  Freeverb.cpp
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(176,34): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(268,58): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(281,64): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(287,66): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(298,25): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(299,39): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(300,16): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp(321,22): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+  HPFButterworth.cpp
+E:\FoxSuite\fox-suite-blocks\src\HPFButterworth.cpp(49,10): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\HPFButterworth.cpp(50,15): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\HPFButterworth.cpp(51,16): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\HPFButterworth.cpp(53,24): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\HPFButterworth.cpp(54,18): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  LFO.cpp
+E:\FoxSuite\fox-suite-blocks\src\LFO.cpp(166,27): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO.cpp(170,21): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO.cpp(176,35): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO.cpp(180,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  LFO_2.cpp
+E:\FoxSuite\fox-suite-blocks\src\LFO_2.cpp(58,27): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO_2.cpp(65,13): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO_2.cpp(70,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LFO_2.cpp(72,14): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  LPCombFilter.cpp
+  LPFButterworth.cpp
+E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp(49,10): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp(50,15): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp(51,15): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp(53,24): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp(54,18): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  ModDelay.cpp
+E:\FoxSuite\fox-suite-blocks\src\ModDelay.cpp(89,58): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\ModDelay.cpp(90,59): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\ModDelay.cpp(103,58): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\src\ModDelay.cpp(104,59): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  Tremolo.cpp
+E:\FoxSuite\fox-suite-blocks\src\Tremolo.cpp(67,23): warning C4244: 'return': conversione da 'double' a 'float'. Possibile perdita di dati.
+  audioeffect.cpp
+  audioeffectx.cpp
+  vstplugmain.cpp
+  MisEfx.cpp
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(22,1): warning C4005: 'NUM_ALLPASS_FILTERS_OUT': ridefinizione macro
+E:\FoxSuite\fox-suite-blocks\include\Freeverb.h(4): message : vedere la precedente definizione di 'NUM_ALLPASS_FILTERS_OUT'
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(23,1): warning C4005: 'MAX_LPF_FREQUENCY': ridefinizione macro
+E:\FoxSuite\fox-suite-blocks\include\Freeverb.h(5): message : vedere la precedente definizione di 'MAX_LPF_FREQUENCY'
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(61,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(62,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(63,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.h(64,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(57,24): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(98,27): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(99,28): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(100,30): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(101,30): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(278,27): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(291,56): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(297,26): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(303,26): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(309,30): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(368,27): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(383,41): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(388,41): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(393,30): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(554,45): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(559,51): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(560,57): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\misefx\MisEfx\MisEfx.cpp(561,57): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+Debug\AllPassFilter.obj : fatal error LNK1112: il tipo di computer del modulo 'x86' è in conflitto con il tipo di computer di destinazione 'x64'
