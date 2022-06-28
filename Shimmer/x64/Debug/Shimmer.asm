@@ -4,12 +4,33 @@ include listing.inc
 
 INCLUDELIB OLDNAMES
 
+PUBLIC	??_C@_07GLGBIDLM@2nd?5Maj@			; `string'
+PUBLIC	??_C@_07GNMKOBCE@3rd?5Min@			; `string'
+PUBLIC	??_C@_07HLFHFJI@3rd?5Maj@			; `string'
+PUBLIC	??_C@_07DOADDGAH@4th?5Per@			; `string'
+PUBLIC	??_C@_07PCKJDGJJ@5th?5Per@			; `string'
+PUBLIC	??_C@_07FLEHIOLN@6th?5Maj@			; `string'
+PUBLIC	??_C@_07JHONIOCD@7th?5Maj@			; `string'
+PUBLIC	??_C@_07JNPNFIPA@1st?5Oct@			; `string'
+PUBLIC	??_C@_07EOOPKDLB@1?5Oct?$CL5@			; `string'
+PUBLIC	??_C@_07FEMGBGFB@1?$CL2?5Oct@			; `string'
 PUBLIC	??_C@_01LKDEMHDF@s@				; `string'
+PUBLIC	??_C@_02EEKDFEKL@ms@				; `string'
+PUBLIC	??_C@_08JGILNPHN@Disabled@			; `string'
+PUBLIC	??_C@_07DOAOMMKG@Enabled@			; `string'
 PUBLIC	??_C@_03INCOKCMB@Wet@				; `string'
 PUBLIC	??_C@_07CNCNAGDO@Shimmer@			; `string'
 PUBLIC	??_C@_05BFFNNFFO@Decay@				; `string'
 PUBLIC	??_C@_04HIAEEHII@Damp@				; `string'
 PUBLIC	??_C@_06LMOCGFEA@Spread@			; `string'
+PUBLIC	??_C@_09ONNCCMEP@Intervals@			; `string'
+PUBLIC	??_C@_0L@FMLEOGHL@Delay?5Damp@			; `string'
+PUBLIC	??_C@_08GPJFBMJO@Delay?5FB@			; `string'
+PUBLIC	??_C@_0L@OEGDAACC@Delay?5Leng@			; `string'
+PUBLIC	??_C@_0L@HJEDBBAG@Enab?5BRDel@			; `string'
+PUBLIC	??_C@_0L@LMBMODJO@Enab?5BRRev@			; `string'
+PUBLIC	??_C@_0M@NKCEPMPP@Enab?5PShift@			; `string'
+PUBLIC	??_C@_0L@HACKHIPL@Enab?5MSRev@			; `string'
 PUBLIC	??_C@_07MCAEODGB@Default@			; `string'
 PUBLIC	??_C@_06PIIHCPLG@Dreamy@			; `string'
 PUBLIC	??_C@_05BCAGPPBA@Short@				; `string'
@@ -34,9 +55,9 @@ PUBLIC	??_R0?AVIAudioSignalProcessor@@@8		; IAudioSignalProcessor `RTTI Type Des
 PUBLIC	??_R2PSMVocoder@@8				; PSMVocoder::`RTTI Base Class Array'
 PUBLIC	??_7PSMVocoder@@6B@				; PSMVocoder::`vftable'
 PUBLIC	??_R2IAudioSignalProcessor@@8			; IAudioSignalProcessor::`RTTI Base Class Array'
+PUBLIC	?INTERVALS_NAMES_STRING@@3PAPEADA		; INTERVALS_NAMES_STRING
 EXTRN	__imp_round:PROC
 EXTRN	__imp_atan2:PROC
-EXTRN	__imp_log:PROC
 EXTRN	__imp_strcpy:PROC
 EXTRN	__imp_abs:PROC
 ;	COMDAT ??_R2IAudioSignalProcessor@@8
@@ -355,6 +376,38 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_07MCAEODGB@Default@ DB 'Default', 00H		; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0L@HACKHIPL@Enab?5MSRev@
+CONST	SEGMENT
+??_C@_0L@HACKHIPL@Enab?5MSRev@ DB 'Enab MSRev', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0M@NKCEPMPP@Enab?5PShift@
+CONST	SEGMENT
+??_C@_0M@NKCEPMPP@Enab?5PShift@ DB 'Enab PShift', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@LMBMODJO@Enab?5BRRev@
+CONST	SEGMENT
+??_C@_0L@LMBMODJO@Enab?5BRRev@ DB 'Enab BRRev', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@HJEDBBAG@Enab?5BRDel@
+CONST	SEGMENT
+??_C@_0L@HJEDBBAG@Enab?5BRDel@ DB 'Enab BRDel', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@OEGDAACC@Delay?5Leng@
+CONST	SEGMENT
+??_C@_0L@OEGDAACC@Delay?5Leng@ DB 'Delay Leng', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_08GPJFBMJO@Delay?5FB@
+CONST	SEGMENT
+??_C@_08GPJFBMJO@Delay?5FB@ DB 'Delay FB', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@FMLEOGHL@Delay?5Damp@
+CONST	SEGMENT
+??_C@_0L@FMLEOGHL@Delay?5Damp@ DB 'Delay Damp', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_09ONNCCMEP@Intervals@
+CONST	SEGMENT
+??_C@_09ONNCCMEP@Intervals@ DB 'Intervals', 00H		; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_06LMOCGFEA@Spread@
 CONST	SEGMENT
 ??_C@_06LMOCGFEA@Spread@ DB 'Spread', 00H		; `string'
@@ -375,12 +428,95 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_03INCOKCMB@Wet@ DB 'Wet', 00H			; `string'
 CONST	ENDS
+;	COMDAT ??_C@_07DOAOMMKG@Enabled@
+CONST	SEGMENT
+??_C@_07DOAOMMKG@Enabled@ DB 'Enabled', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_08JGILNPHN@Disabled@
+CONST	SEGMENT
+??_C@_08JGILNPHN@Disabled@ DB 'Disabled', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_02EEKDFEKL@ms@
+CONST	SEGMENT
+??_C@_02EEKDFEKL@ms@ DB 'ms', 00H			; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_01LKDEMHDF@s@
 CONST	SEGMENT
 ??_C@_01LKDEMHDF@s@ DB 's', 00H				; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07FEMGBGFB@1?$CL2?5Oct@
+CONST	SEGMENT
+??_C@_07FEMGBGFB@1?$CL2?5Oct@ DB '1+2 Oct', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07EOOPKDLB@1?5Oct?$CL5@
+CONST	SEGMENT
+??_C@_07EOOPKDLB@1?5Oct?$CL5@ DB '1 Oct+5', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07JNPNFIPA@1st?5Oct@
+CONST	SEGMENT
+??_C@_07JNPNFIPA@1st?5Oct@ DB '1st Oct', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07JHONIOCD@7th?5Maj@
+CONST	SEGMENT
+??_C@_07JHONIOCD@7th?5Maj@ DB '7th Maj', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07FLEHIOLN@6th?5Maj@
+CONST	SEGMENT
+??_C@_07FLEHIOLN@6th?5Maj@ DB '6th Maj', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07PCKJDGJJ@5th?5Per@
+CONST	SEGMENT
+??_C@_07PCKJDGJJ@5th?5Per@ DB '5th Per', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07DOADDGAH@4th?5Per@
+CONST	SEGMENT
+??_C@_07DOADDGAH@4th?5Per@ DB '4th Per', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07HLFHFJI@3rd?5Maj@
+CONST	SEGMENT
+??_C@_07HLFHFJI@3rd?5Maj@ DB '3rd Maj', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07GNMKOBCE@3rd?5Min@
+CONST	SEGMENT
+??_C@_07GNMKOBCE@3rd?5Min@ DB '3rd Min', 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_07GLGBIDLM@2nd?5Maj@
+CONST	SEGMENT
+??_C@_07GLGBIDLM@2nd?5Maj@ DB '2nd Maj', 00H		; `string'
 ?_Fake_alloc@std@@3U_Fake_allocator@1@B	ORG $+1		; std::_Fake_alloc
+	ORG $+3
+?INTERVALS_IN_SEMITONES_PITCH1@@3QBMB DD 040000000r ; 2	; INTERVALS_IN_SEMITONES_PITCH1
+	DD	040400000r			; 3
+	DD	040800000r			; 4
+	DD	040a00000r			; 5
+	DD	040e00000r			; 7
+	DD	041100000r			; 9
+	DD	041300000r			; 11
+	DD	041400000r			; 12
+	DD	041400000r			; 12
+	DD	041400000r			; 12
+?INTERVALS_IN_SEMITONES_PITCH2@@3QBMB DD 000000000r ; 0	; INTERVALS_IN_SEMITONES_PITCH2
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	000000000r			; 0
+	DD	041980000r			; 19
+	DD	041c00000r			; 24
+	ORG $+8
+?INTERVALS_NAMES_STRING@@3PAPEADA DQ FLAT:??_C@_07GLGBIDLM@2nd?5Maj@ ; INTERVALS_NAMES_STRING
+	DQ	FLAT:??_C@_07GNMKOBCE@3rd?5Min@
+	DQ	FLAT:??_C@_07HLFHFJI@3rd?5Maj@
+	DQ	FLAT:??_C@_07DOADDGAH@4th?5Per@
+	DQ	FLAT:??_C@_07PCKJDGJJ@5th?5Per@
+	DQ	FLAT:??_C@_07FLEHIOLN@6th?5Maj@
+	DQ	FLAT:??_C@_07JHONIOCD@7th?5Maj@
+	DQ	FLAT:??_C@_07JNPNFIPA@1st?5Oct@
+	DQ	FLAT:??_C@_07EOOPKDLB@1?5Oct?$CL5@
+	DQ	FLAT:??_C@_07FEMGBGFB@1?$CL2?5Oct@
 PUBLIC	??_GPSMVocoder@@QEAAPEAXI@Z			; PSMVocoder::`scalar deleting destructor'
-PUBLIC	??_GDelay@@QEAAPEAXI@Z				; Delay::`scalar deleting destructor'
 PUBLIC	??_GFreeverb@@QEAAPEAXI@Z			; Freeverb::`scalar deleting destructor'
 PUBLIC	??1Shimmer@@UEAA@XZ				; Shimmer::~Shimmer
 PUBLIC	?getVendorString@Shimmer@@UEAA_NPEAD@Z		; Shimmer::getVendorString
@@ -399,6 +535,7 @@ PUBLIC	?setSampleRate@Shimmer@@UEAAXM@Z		; Shimmer::setSampleRate
 PUBLIC	?InitPlugin@Shimmer@@AEAAXXZ			; Shimmer::InitPlugin
 PUBLIC	??_GShimmer@@UEAAPEAXI@Z			; Shimmer::`scalar deleting destructor'
 PUBLIC	??0Shimmer@@QEAA@P6A_JPEAUAEffect@@HH_JPEAXM@Z@Z ; Shimmer::Shimmer
+PUBLIC	?mapValueOutsideRange@@YAMMMM@Z			; mapValueOutsideRange
 PUBLIC	??0IAudioSignalProcessor@@QEAA@XZ		; IAudioSignalProcessor::IAudioSignalProcessor
 PUBLIC	?setParameters@PSMVocoder@@QEAAXAEBUPSMVocoderParameters@@@Z ; PSMVocoder::setParameters
 PUBLIC	?getParameters@PSMVocoder@@QEAA?AUPSMVocoderParameters@@XZ ; PSMVocoder::getParameters
@@ -442,20 +579,14 @@ $pdata$??_GPSMVocoder@@QEAAPEAXI@Z DD imagerel $LN6@scalar
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??_GDelay@@QEAAPEAXI@Z DD imagerel $LN6@scalar
-	DD	imagerel $LN6@scalar+23
-	DD	imagerel $unwind$??_GDelay@@QEAAPEAXI@Z
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$??_GFreeverb@@QEAAPEAXI@Z DD imagerel $LN6@scalar
 	DD	imagerel $LN6@scalar+23
 	DD	imagerel $unwind$??_GFreeverb@@QEAAPEAXI@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$??1Shimmer@@UEAA@XZ DD imagerel $LN29@Shimmer
-	DD	imagerel $LN29@Shimmer+116
+$pdata$??1Shimmer@@UEAA@XZ DD imagerel $LN38@Shimmer
+	DD	imagerel $LN38@Shimmer+140
 	DD	imagerel $unwind$??1Shimmer@@UEAA@XZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -485,37 +616,37 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$?InitPresets@Shimmer@@AEAAXXZ DD imagerel $LN4@InitPreset
-	DD	imagerel $LN4@InitPreset+579
+	DD	imagerel $LN4@InitPreset+597
 	DD	imagerel $unwind$?InitPresets@Shimmer@@AEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?getParameterName@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN23@getParamet
-	DD	imagerel $LN23@getParamet+101
+$pdata$?getParameterName@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN48@getParamet
+	DD	imagerel $LN48@getParamet+222
 	DD	imagerel $unwind$?getParameterName@Shimmer@@UEAAXHPEAD@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?getParameterDisplay@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN14@getParamet
-	DD	imagerel $LN14@getParamet+104
+$pdata$?getParameterDisplay@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN55@getParamet
+	DD	imagerel $LN55@getParamet+374
 	DD	imagerel $unwind$?getParameterDisplay@Shimmer@@UEAAXHPEAD@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?getParameterLabel@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN22@getParamet
-	DD	imagerel $LN22@getParamet+93
+$pdata$?getParameterLabel@Shimmer@@UEAAXHPEAD@Z DD imagerel $LN50@getParamet
+	DD	imagerel $LN50@getParamet+136
 	DD	imagerel $unwind$?getParameterLabel@Shimmer@@UEAAXHPEAD@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?setParameter@Shimmer@@UEAAXHM@Z DD imagerel $LN26
-	DD	imagerel $LN26+363
+$pdata$?setParameter@Shimmer@@UEAAXHM@Z DD imagerel $LN47
+	DD	imagerel $LN47+797
 	DD	imagerel $unwind$?setParameter@Shimmer@@UEAAXHM@Z
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?processReplacing@Shimmer@@UEAAXPEAPEAM0H@Z DD imagerel $LN12@processRep
-	DD	imagerel $LN12@processRep+510
+$pdata$?processReplacing@Shimmer@@UEAAXPEAPEAM0H@Z DD imagerel $LN16@processRep
+	DD	imagerel $LN16@processRep+601
 	DD	imagerel $unwind$?processReplacing@Shimmer@@UEAAXPEAPEAM0H@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -526,8 +657,8 @@ $pdata$?setSampleRate@Shimmer@@UEAAXM@Z DD imagerel $LN4@setSampleR
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?InitPlugin@Shimmer@@AEAAXXZ DD imagerel $LN63
-	DD	imagerel $LN63+892
+$pdata$?InitPlugin@Shimmer@@AEAAXXZ DD imagerel $LN67@InitPlugin
+	DD	imagerel $LN67@InitPlugin+992
 	DD	imagerel $unwind$?InitPlugin@Shimmer@@AEAAXXZ
 pdata	ENDS
 ;	COMDAT pdata
@@ -568,6 +699,12 @@ $pdata$?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD imagerel ?dtor$5@?0??InitP
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD imagerel ?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
+	DD	imagerel ?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA+32
+	DD	imagerel $unwind$?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$??_GShimmer@@UEAAPEAXI@Z DD imagerel $LN6@scalar
 	DD	imagerel $LN6@scalar+52
 	DD	imagerel $unwind$??_GShimmer@@UEAAPEAXI@Z
@@ -575,7 +712,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$??0Shimmer@@QEAA@P6A_JPEAUAEffect@@HH_JPEAXM@Z@Z DD imagerel $LN14@Shimmer
-	DD	imagerel $LN14@Shimmer+396
+	DD	imagerel $LN14@Shimmer+265
 	DD	imagerel $unwind$??0Shimmer@@QEAA@P6A_JPEAUAEffect@@HH_JPEAXM@Z@Z
 pdata	ENDS
 ;	COMDAT pdata
@@ -785,7 +922,7 @@ $unwind$?setParameters@PSMVocoder@@QEAAXAEBUPSMVocoderParameters@@@Z DQ 00006340
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$??0Shimmer@@QEAA@P6A_JPEAUAEffect@@HH_JPEAXM@Z@Z DD 0205e102H
+$ip2state$??0Shimmer@@QEAA@P6A_JPEAUAEffect@@HH_JPEAXM@Z@Z DD 0203d502H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -813,68 +950,42 @@ $unwind$??_GShimmer@@UEAAPEAXI@Z DQ 00006340a00040a01r ; 8.62672e-309
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DD 020601H
-	DD	050023206H
+$unwind$?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$ip2state$?InitPlugin@Shimmer@@AEAAXXZ DB 01aH
-	DB	','
-	DB	00H
-	DB	'N'
-	DB	02H
-	DB	012H
-	DB	00H
-	DB	08eH
-	DB	04H
-	DB	012H
-	DB	00H
-	DB	092H
-	DB	06H
-	DB	012H
-	DB	00H
-	DB	','
-	DB	08H
-	DB	012H
-	DB	00H
-	DB	','
-	DB	0aH
-	DB	012H
-	DB	00H
-	DB	','
-	DB	0cH
-	DB	012H
-	DB	00H
+$unwind$?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA DQ 05002320600020601r ; 2.6336e+77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$stateUnwindMap$?InitPlugin@Shimmer@@AEAAXXZ DB 0cH
-	DB	0eH
+$ip2state$?InitPlugin@Shimmer@@AEAAXXZ DQ 08e001202b8002c1er ; -3.01258e-241
+	DQ	02c00120692001204r		; 9.40456e-97
+	DQ	02c00120a2c001208r		; 9.40459e-97
+	DQ	000120e06d900120cr		; 2.51083e-308
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$stateUnwindMap$?InitPlugin@Shimmer@@AEAAXXZ DW 0e0eH
 	DD	imagerel ?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
 	DB	036H
 	DD	imagerel ?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
@@ -886,6 +997,8 @@ $stateUnwindMap$?InitPlugin@Shimmer@@AEAAXXZ DB 0cH
 	DD	imagerel ?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
 	DB	0d6H
 	DD	imagerel ?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
+	DB	0feH
+	DD	imagerel ?dtor$6@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -895,10 +1008,8 @@ $cppxdata$?InitPlugin@Shimmer@@AEAAXXZ DB 028H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?InitPlugin@Shimmer@@AEAAXXZ DD 071311H
-	DD	086813H
-	DD	015340fH
-	DD	012010fH
+$unwind$?InitPlugin@Shimmer@@AEAAXXZ DQ 00008681300071311r ; 1.16907e-308
+	DQ	00012010f0015340fr		; 2.50378e-308
 	DD	07008H
 	DD	imagerel __CxxFrameHandler4
 	DD	imagerel $cppxdata$?InitPlugin@Shimmer@@AEAAXXZ
@@ -910,17 +1021,20 @@ $unwind$?setSampleRate@Shimmer@@UEAAXM@Z DQ 00002681200061201r ; 3.34668e-309
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?processReplacing@Shimmer@@UEAAXPEAPEAM0H@Z DQ 00003984f00124f01r ; 4.9994e-309
-	DQ	0000578450004884ar		; 7.6067e-309
-	DQ	0001764230006683er		; 3.25294e-308
-	DQ	0f01cd22300143423r		; -1.11862e+232
-	DQ	050157016d018e01ar		; 6.20583e+77
+$unwind$?processReplacing@Shimmer@@UEAAXPEAPEAM0H@Z DQ 00003a85700145701r ; 5.08649e-309
+	DQ	00005884d00049852r		; 7.69378e-309
+	DQ	00007684100067848r		; 1.0301e-308
+	DQ	00016342600196426r		; 3.08781e-308
+	DQ	0c018e01af01cf226r		; -6.21885
+	DD	050157016H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?setParameter@Shimmer@@UEAAXHM@Z DD 040b01H
-	DD	02680bH
-	DD	030025206H
+$unwind$?setParameter@Shimmer@@UEAAXHM@Z DD 081401H
+	DD	026814H
+	DD	09640fH
+	DD	08340fH
+	DD	0700b520fH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -928,7 +1042,7 @@ $unwind$?getParameterLabel@Shimmer@@UEAAXHPEAD@Z DQ 03002320600020601r ; 1.96423
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$?getParameterDisplay@Shimmer@@UEAAXHPEAD@Z DQ 00000420400010401r ; 3.58617e-310
+$unwind$?getParameterDisplay@Shimmer@@UEAAXHPEAD@Z DQ 03002320600020601r ; 1.96423e-77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -965,818 +1079,40 @@ $unwind$??_GFreeverb@@QEAAPEAXI@Z DQ 03002320600020601r ; 1.96423e-77
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$??_GDelay@@QEAAPEAXI@Z DQ 03002320600020601r ; 1.96423e-77
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$??_GPSMVocoder@@QEAAPEAXI@Z DQ 03002320600020601r ; 1.96423e-77
 ?kCTCorrFactorZero$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorZero@@YAXXZ ; kCTCorrFactorZero$initializer$
 ?kCTCorrFactorUnity$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorUnity@@YAXXZ ; kCTCorrFactorUnity$initializer$
 ?kCTCorrFactorAntiUnity$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiUnity@@YAXXZ ; kCTCorrFactorAntiUnity$initializer$
 ?kCTCorrFactorAntiLog$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiLog@@YAXXZ ; kCTCorrFactorAntiLog$initializer$
 ?kCTCorrFactorAntiLogScale$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiLogScale@@YAXXZ ; kCTCorrFactorAntiLogScale$initializer$
+?MAX_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_LPF_FREQUENCY_LOG@@YAXXZ ; MAX_LPF_FREQUENCY_LOG$initializer$
+?MIN_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_LPF_FREQUENCY_LOG@@YAXXZ ; MIN_LPF_FREQUENCY_LOG$initializer$
+?MAX_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_HPF_FREQUENCY_LOG@@YAXXZ ; MAX_HPF_FREQUENCY_LOG$initializer$
+?MIN_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_HPF_FREQUENCY_LOG@@YAXXZ ; MIN_HPF_FREQUENCY_LOG$initializer$
+?MAX_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_FREQUENCY_LOG@@YAXXZ ; MAX_FREQUENCY_LOG$initializer$
+?MIN_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_FREQUENCY_LOG@@YAXXZ ; MIN_FREQUENCY_LOG$initializer$
 ; Function compile flags: /Ogspy
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-;	COMDAT ?InitPlugin@Shimmer@@AEAAXXZ
-_TEXT	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?InitPlugin@Shimmer@@AEAAXXZ PROC			; Shimmer::InitPlugin, COMDAT
-
-; 41   : {
-
-$LN63:
-	mov	rax, rsp
-	mov	QWORD PTR [rax+16], rbx
-	push	rdi
-	sub	rsp, 144				; 00000090H
-	movaps	XMMWORD PTR [rax-24], xmm6
-	mov	rdi, rcx
-
-; 42   :     /*.......................................*/
-; 43   :     // initialize reverb plug-in parameters
-; 44   :     InitPresets();
-
-	call	?InitPresets@Shimmer@@AEAAXXZ		; Shimmer::InitPresets
-
-; 45   : 
-; 46   :     // get current sample rate
-; 47   :     int currSampleRate = getSampleRate();
-
-	mov	rax, QWORD PTR [rdi]
-	mov	rcx, rdi
-	call	QWORD PTR [rax+248]
-	cvttss2si ebx, xmm0
-
-; 48   : 
-; 49   :     /*.......................................*/
-; 50   :     // init BranchReverb
-; 51   :     BranchReverb = new Freeverb();
-
-	mov	ecx, 208				; 000000d0H
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T1[rsp], rax
-	mov	rcx, rax
-	call	??0Freeverb@@QEAA@XZ			; Freeverb::Freeverb
-	npad	1
-	mov	QWORD PTR [rdi+288], rax
-
-; 52   :     BranchReverb->init(currSampleRate, 1.0, 2.0, shim_damping, 0.7, shim_spread, 0.0);
-
-	movss	xmm0, DWORD PTR [rdi+280]
-	movss	DWORD PTR [rsp+48], xmm0
-	movss	xmm1, DWORD PTR [rdi+276]
-	movss	DWORD PTR [rsp+32], xmm1
-	movss	xmm3, DWORD PTR __real@40000000
-	mov	edx, ebx
-	mov	rcx, rax
-	call	?init@Freeverb@@QEAAXHMMMMMM@Z		; Freeverb::init
-
-; 53   : 
-; 54   :     // init MasterReverb
-; 55   :     MasterReverb = new Freeverb();
-
-	mov	ecx, 208				; 000000d0H
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T3[rsp], rax
-	mov	rcx, rax
-	call	??0Freeverb@@QEAA@XZ			; Freeverb::Freeverb
-	npad	1
-	mov	QWORD PTR [rdi+296], rax
-
-; 56   :     MasterReverb->init(currSampleRate, 1.0, shim_decay, shim_damping, 0.7, shim_spread, 0.0);
-
-	movss	xmm0, DWORD PTR [rdi+280]
-	movss	DWORD PTR [rsp+48], xmm0
-	movss	xmm1, DWORD PTR [rdi+276]
-	movss	DWORD PTR [rsp+32], xmm1
-	movss	xmm3, DWORD PTR [rdi+272]
-	mov	edx, ebx
-	mov	rcx, rax
-	call	?init@Freeverb@@QEAAXHMMMMMM@Z		; Freeverb::init
-
-; 57   : 
-; 58   :     /*.......................................*/
-; 59   :     // init PitchShifters
-; 60   :     //PitchShift_1oct = new PitchShifter();
-; 61   :     //PitchShift_2oct = new PitchShifter();
-; 62   : 
-; 63   :     /*.......................................*/
-; 64   :     // init PSMVocoder
-; 65   :     PitchShift_1octL = new PSMVocoder();
-
-	mov	ebx, 491736				; 000780d8H
-	mov	ecx, ebx
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T5[rsp], rax
-	mov	rcx, rax
-	call	??0PSMVocoder@@QEAA@XZ			; PSMVocoder::PSMVocoder
-	npad	1
-	mov	QWORD PTR [rdi+304], rax
-
-; 66   :     PitchShift_1octR = new PSMVocoder();
-
-	mov	ecx, ebx
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T7[rsp], rax
-	mov	rcx, rax
-	call	??0PSMVocoder@@QEAA@XZ			; PSMVocoder::PSMVocoder
-	npad	1
-	mov	QWORD PTR [rdi+312], rax
-
-; 67   :     PitchShift_2octL = new PSMVocoder();
-
-	mov	ecx, ebx
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T9[rsp], rax
-	mov	rcx, rax
-	call	??0PSMVocoder@@QEAA@XZ			; PSMVocoder::PSMVocoder
-	npad	1
-	mov	QWORD PTR [rdi+320], rax
-
-; 68   :     PitchShift_2octR = new PSMVocoder();
-
-	mov	ecx, ebx
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	QWORD PTR $T11[rsp], rax
-	mov	rcx, rax
-	call	??0PSMVocoder@@QEAA@XZ			; PSMVocoder::PSMVocoder
-	npad	1
-	mov	QWORD PTR [rdi+328], rax
-
-; 69   :     // set sample rate
-; 70   :     PitchShift_1octL->reset((double)sampleRate);
-
-	mov	rcx, QWORD PTR [rdi+304]
-	mov	rax, QWORD PTR [rcx]
-	movss	xmm1, DWORD PTR [rdi+24]
-	cvtps2pd xmm1, xmm1
-	call	QWORD PTR [rax]
-
-; 71   :     PitchShift_1octR->reset((double)sampleRate);
-
-	mov	rcx, QWORD PTR [rdi+312]
-	mov	rax, QWORD PTR [rcx]
-	movss	xmm1, DWORD PTR [rdi+24]
-	cvtps2pd xmm1, xmm1
-	call	QWORD PTR [rax]
-
-; 72   :     PitchShift_2octL->reset((double)sampleRate);
-
-	mov	rcx, QWORD PTR [rdi+320]
-	mov	rax, QWORD PTR [rcx]
-	movss	xmm1, DWORD PTR [rdi+24]
-	cvtps2pd xmm1, xmm1
-	call	QWORD PTR [rax]
-
-; 73   :     PitchShift_2octR->reset((double)sampleRate);
-
-	mov	rcx, QWORD PTR [rdi+328]
-	mov	rax, QWORD PTR [rcx]
-	movss	xmm1, DWORD PTR [rdi+24]
-	cvtps2pd xmm1, xmm1
-	call	QWORD PTR [rax]
-
-; 74   :     // set phase locking and peak tracking
-; 75   :     PSMVocoderParameters params1L = PitchShift_1octL->getParameters();
-
-	mov	rcx, QWORD PTR [rdi+304]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1013 : 		return parameters;
-
-	movups	xmm6, XMMWORD PTR [rcx+8]
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 76   :     PSMVocoderParameters params1R = PitchShift_1octR->getParameters();
-
-	mov	rax, QWORD PTR [rdi+312]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1013 : 		return parameters;
-
-	movups	xmm0, XMMWORD PTR [rax+8]
-	movdqu	XMMWORD PTR params1R$[rsp], xmm0
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 77   :     PSMVocoderParameters params2L = PitchShift_2octL->getParameters();
-
-	mov	rax, QWORD PTR [rdi+320]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1013 : 		return parameters;
-
-	movups	xmm1, XMMWORD PTR [rax+8]
-	movdqu	XMMWORD PTR params2L$[rsp], xmm1
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 78   :     PSMVocoderParameters params2R = PitchShift_2octR->getParameters();    
-
-	mov	rax, QWORD PTR [rdi+328]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1013 : 		return parameters;
-
-	movups	xmm0, XMMWORD PTR [rax+8]
-	movdqu	XMMWORD PTR params2R$[rsp], xmm0
-
-; 1022 : 		if (params.pitchShiftSemitones != parameters.pitchShiftSemitones)
-
-	lea	rbx, QWORD PTR [rcx+8]
-	ucomisd	xmm6, QWORD PTR [rbx]
-	je	SHORT $LN33@InitPlugin
-
-; 1023 : 		{
-; 1024 : 			setPitchShift(params.pitchShiftSemitones);
-
-	movaps	xmm1, xmm6
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-$LN33@InitPlugin:
-
-; 430  : 		if (this == &params)
-
-	lea	rax, QWORD PTR params1L$[rsp]
-	cmp	rbx, rax
-	je	SHORT $LN35@InitPlugin
-
-; 431  : 			return *this;
-; 432  : 
-; 433  : 		pitchShiftSemitones = params.pitchShiftSemitones;
-
-	movsd	QWORD PTR [rbx], xmm6
-
-; 434  : 		enablePeakPhaseLocking = params.enablePeakPhaseLocking;
-
-	mov	WORD PTR [rbx+8], 257			; 00000101H
-$LN35@InitPlugin:
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 89   :     PitchShift_1octR->setParameters(params1R);
-
-	mov	rcx, QWORD PTR [rdi+312]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1022 : 		if (params.pitchShiftSemitones != parameters.pitchShiftSemitones)
-
-	lea	rbx, QWORD PTR [rcx+8]
-	movsd	xmm6, QWORD PTR params1R$[rsp]
-	ucomisd	xmm6, QWORD PTR [rbx]
-	je	SHORT $LN39@InitPlugin
-
-; 1023 : 		{
-; 1024 : 			setPitchShift(params.pitchShiftSemitones);
-
-	movaps	xmm1, xmm6
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-$LN39@InitPlugin:
-
-; 430  : 		if (this == &params)
-
-	lea	rax, QWORD PTR params1R$[rsp]
-	cmp	rbx, rax
-	je	SHORT $LN41@InitPlugin
-
-; 431  : 			return *this;
-; 432  : 
-; 433  : 		pitchShiftSemitones = params.pitchShiftSemitones;
-
-	movsd	QWORD PTR [rbx], xmm6
-
-; 434  : 		enablePeakPhaseLocking = params.enablePeakPhaseLocking;
-
-	mov	WORD PTR [rbx+8], 257			; 00000101H
-$LN41@InitPlugin:
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 90   :     PitchShift_2octL->setParameters(params2L);
-
-	mov	rcx, QWORD PTR [rdi+320]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1022 : 		if (params.pitchShiftSemitones != parameters.pitchShiftSemitones)
-
-	lea	rbx, QWORD PTR [rcx+8]
-	movsd	xmm6, QWORD PTR params2L$[rsp]
-	ucomisd	xmm6, QWORD PTR [rbx]
-	je	SHORT $LN45@InitPlugin
-
-; 1023 : 		{
-; 1024 : 			setPitchShift(params.pitchShiftSemitones);
-
-	movaps	xmm1, xmm6
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-$LN45@InitPlugin:
-
-; 430  : 		if (this == &params)
-
-	lea	rax, QWORD PTR params2L$[rsp]
-	cmp	rbx, rax
-	je	SHORT $LN47@InitPlugin
-
-; 431  : 			return *this;
-; 432  : 
-; 433  : 		pitchShiftSemitones = params.pitchShiftSemitones;
-
-	movsd	QWORD PTR [rbx], xmm6
-
-; 434  : 		enablePeakPhaseLocking = params.enablePeakPhaseLocking;
-
-	mov	WORD PTR [rbx+8], 257			; 00000101H
-$LN47@InitPlugin:
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 91   :     PitchShift_2octR->setParameters(params2R);
-
-	mov	rcx, QWORD PTR [rdi+328]
-; File E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h
-
-; 1022 : 		if (params.pitchShiftSemitones != parameters.pitchShiftSemitones)
-
-	lea	rbx, QWORD PTR [rcx+8]
-	movsd	xmm6, QWORD PTR params2R$[rsp]
-	ucomisd	xmm6, QWORD PTR [rbx]
-	je	SHORT $LN51@InitPlugin
-
-; 1023 : 		{
-; 1024 : 			setPitchShift(params.pitchShiftSemitones);
-
-	movaps	xmm1, xmm6
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-$LN51@InitPlugin:
-
-; 430  : 		if (this == &params)
-
-	lea	rax, QWORD PTR params2R$[rsp]
-	cmp	rbx, rax
-	je	SHORT $LN53@InitPlugin
-
-; 431  : 			return *this;
-; 432  : 
-; 433  : 		pitchShiftSemitones = params.pitchShiftSemitones;
-
-	movsd	QWORD PTR [rbx], xmm6
-
-; 434  : 		enablePeakPhaseLocking = params.enablePeakPhaseLocking;
-
-	mov	WORD PTR [rbx+8], 257			; 00000101H
-$LN53@InitPlugin:
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 93   :     PitchShift_1octL->setPitchShift(12.0);
-
-	movsd	xmm1, QWORD PTR __real@4028000000000000
-	mov	rcx, QWORD PTR [rdi+304]
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-
-; 94   :     PitchShift_1octR->setPitchShift(12.0);
-
-	movsd	xmm1, QWORD PTR __real@4028000000000000
-	mov	rcx, QWORD PTR [rdi+312]
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-
-; 95   :     PitchShift_2octL->setPitchShift(24.0);
-
-	movsd	xmm1, QWORD PTR __real@4038000000000000
-	mov	rcx, QWORD PTR [rdi+320]
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-
-; 96   :     PitchShift_2octR->setPitchShift(24.0);
-
-	movsd	xmm1, QWORD PTR __real@4038000000000000
-	mov	rcx, QWORD PTR [rdi+328]
-	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
-
-; 100  :     BranchDelay = new Delay();
-
-	mov	ecx, 56					; 00000038H
-	call	??2@YAPEAX_K@Z				; operator new
-	mov	rcx, rax
-	mov	QWORD PTR $T13[rsp], rax
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-
-; 7    : {
-
-	lea	rax, OFFSET FLAT:??_7Delay@@6B@
-	mov	QWORD PTR [rcx], rax
-
-; 8    : 	dly_buffer				= NULL;
-
-	xor	eax, eax
-	mov	QWORD PTR [rcx+40], rax
-
-; 9    : 	dly_makeUpGaindB		= 0.0;
-
-	mov	DWORD PTR [rcx+48], eax
-
-; 10   : 	dly_makeUpGain			= 1.0;
-
-	mov	DWORD PTR [rcx+52], 1065353216		; 3f800000H
-
-; 11   : 	dly_delayInmsec			= 0.0;
-; 12   : 	dly_delayInSamples		= 0.0;
-
-	mov	QWORD PTR [rcx+20], rax
-
-; 13   : 	dly_readIndex			= 0;
-
-	mov	QWORD PTR [rcx+28], rax
-
-; 14   : 	dly_writeIndex			= 0;
-; 15   : 	dly_lineLengthInSamples = 0;
-
-	mov	QWORD PTR [rcx+12], rax
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 100  :     BranchDelay = new Delay();
-
-	mov	QWORD PTR [rdi+336], rcx
-
-; 101  :     BranchDelay->init(500.0, sampleRate);
-
-	mov	rax, QWORD PTR [rcx]
-	cvttss2si r8d, DWORD PTR [rdi+24]
-	movss	xmm1, DWORD PTR __real@43fa0000
-	call	QWORD PTR [rax]
-
-; 102  :     BranchDelay->setDelayInmsec(100.0);
-
-	mov	rcx, QWORD PTR [rdi+336]
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-
-; 128  : 	dly_delayInmsec = delayInmsec;
-
-	mov	DWORD PTR [rcx+24], 1120403456		; 42c80000H
-	movd	xmm0, DWORD PTR [rcx+16]
-
-; 129  : 
-; 130  : 	if (dly_delayInmsec > dly_lineLengthInmsec)
-
-	cvtdq2ps xmm0, xmm0
-	comiss	xmm0, DWORD PTR __real@42c80000
-	jae	SHORT $LN59@InitPlugin
-
-; 131  : 		dly_delayInmsec = dly_lineLengthInmsec;
-
-	movss	DWORD PTR [rcx+24], xmm0
-$LN59@InitPlugin:
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-
-; 103  : }
-
-	lea	r11, QWORD PTR [rsp+144]
-	mov	rbx, QWORD PTR [r11+24]
-	movaps	xmm6, XMMWORD PTR [r11-16]
-	mov	rsp, r11
-	pop	rdi
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-
-; 134  : 	updateParameters();
-
-	jmp	?updateParameters@Delay@@QEAAXXZ	; Delay::updateParameters
-?InitPlugin@Shimmer@@AEAAXXZ ENDP			; Shimmer::InitPlugin
-_TEXT	ENDS
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$0
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 208				; 000000d0H
-	mov	rcx, QWORD PTR $T1[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$0
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$1
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 208				; 000000d0H
-	mov	rcx, QWORD PTR $T3[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$1
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$2
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T5[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$2
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$3
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T7[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$3
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$4
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T9[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$4
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$5
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T11[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$5
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$0
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 208				; 000000d0H
-	mov	rcx, QWORD PTR $T1[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$0@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$0
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$1
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 208				; 000000d0H
-	mov	rcx, QWORD PTR $T3[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$1@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$1
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$2
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T5[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$2@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$2
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$3
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T7[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$3@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$3
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$4
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T9[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$4@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$4
-text$x	ENDS
-; Function compile flags: /Ogspy
-;	COMDAT text$x
-text$x	SEGMENT
-params1R$ = 64
-params2L$ = 80
-params2R$ = 96
-params1L$ = 112
-$T13 = 160
-$T11 = 160
-$T9 = 160
-$T7 = 160
-$T5 = 160
-$T3 = 160
-$T1 = 160
-this$ = 160
-?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA PROC	; `Shimmer::InitPlugin'::`1'::dtor$5
-	push	rbp
-	sub	rsp, 32					; 00000020H
-	mov	rbp, rdx
-	mov	edx, 491736				; 000780d8H
-	mov	rcx, QWORD PTR $T11[rbp]
-	call	??3@YAXPEAX_K@Z				; operator delete
-	add	rsp, 32					; 00000020H
-	pop	rbp
-	ret	0
-?dtor$5@?0??InitPlugin@Shimmer@@AEAAXXZ@4HA ENDP	; `Shimmer::InitPlugin'::`1'::dtor$5
-text$x	ENDS
-; Function compile flags: /Ogspy
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 ; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 ; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
-; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 ; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
-; File E:\FoxSuite\fox-suite-blocks\src\utils.cpp
+; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
+; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
+; File E:\FoxSuite\fox-suite-blocks\src\LPCombFilter.cpp
+; File E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 ;	COMDAT ?setParameter@Shimmer@@UEAAXHM@Z
 _TEXT	SEGMENT
@@ -1785,60 +1121,70 @@ index$ = 72
 value$ = 80
 ?setParameter@Shimmer@@UEAAXHM@Z PROC			; Shimmer::setParameter, COMDAT
 
-; 191  : {
+; 221  : {
 
-$LN26:
-	push	rbx
+$LN47:
+	mov	QWORD PTR [rsp+8], rbx
+	mov	QWORD PTR [rsp+16], rsi
+	push	rdi
 	sub	rsp, 48					; 00000030H
 	movaps	XMMWORD PTR [rsp+32], xmm6
-	mov	rbx, rcx
+	mov	rdi, rcx
 
-; 192  :     switch (index) {
+; 222  :     switch (index) {
 
+	cmp	edx, 6
+	jg	$LN20@setParamet
+	je	$LN11@setParamet
 	test	edx, edx
 	je	$LN4@setParamet
 	sub	edx, 1
 	je	$LN5@setParamet
 	sub	edx, 1
+	je	$LN9@setParamet
+	sub	edx, 1
 	je	$LN6@setParamet
 	sub	edx, 1
 	je	$LN7@setParamet
 	cmp	edx, 1
-	jne	$LN9@setParamet
+	jne	$LN18@setParamet
 
-; 221  :         BranchReverb->setReverbSpread(shim_spread);
+; 251  :         BranchReverb->setReverbSpread(shim_spread);
 
-	mov	rax, QWORD PTR [rcx+288]
-; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
+	mov	rax, QWORD PTR [rcx+304]
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 
-; 250  :     return minvalue + value * (maxValue - minvalue);
+; 23   :     return minvalue + value * (maxValue - minvalue);
 
 	movss	xmm4, DWORD PTR __real@3f800000
+; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 
-; 298  :     wet1 = freeverb_wet * (width / 2.0 + 0.5);
+; 281  :     wet1 = freeverb_wet * (width / 2.0 + 0.5);
 
 	movss	xmm3, DWORD PTR __real@3f000000
 
-; 299  :     wet2 = freeverb_wet * (1 - width) / 2.0;
+; 282  :     wet2 = freeverb_wet * (1 - width) / 2.0;
 
 	movaps	xmm1, xmm4
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 
-; 220  :         shim_spread = value;
+; 250  :         shim_spread = value;
 
-	movss	DWORD PTR [rcx+280], xmm2
+	movss	DWORD PTR [rcx+268], xmm2
 ; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 
-; 214  :     freeverb_spread = spread;
+; 213  :     freeverb_spread = spread;
 
 	movss	DWORD PTR [rax+20], xmm2
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 
-; 250  :     return minvalue + value * (maxValue - minvalue);
+; 23   :     return minvalue + value * (maxValue - minvalue);
 
 	addss	xmm2, xmm2
 	subss	xmm2, xmm4
+; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 
-; 298  :     wet1 = freeverb_wet * (width / 2.0 + 0.5);
+; 281  :     wet1 = freeverb_wet * (width / 2.0 + 0.5);
 
 	movaps	xmm0, xmm2
 	addss	xmm0, xmm4
@@ -1846,7 +1192,7 @@ $LN26:
 	mulss	xmm0, DWORD PTR [rax]
 	movss	DWORD PTR [rax+24], xmm0
 
-; 299  :     wet2 = freeverb_wet * (1 - width) / 2.0;
+; 282  :     wet2 = freeverb_wet * (1 - width) / 2.0;
 
 	movaps	xmm0, xmm4
 	subss	xmm0, xmm2
@@ -1854,35 +1200,37 @@ $LN26:
 	mulss	xmm0, xmm3
 	movss	DWORD PTR [rax+28], xmm0
 
-; 300  :     dry = (1.0 - freeverb_wet);
+; 283  :     dry = (1.0 - freeverb_wet);
 
 	movaps	xmm0, xmm4
 	subss	xmm0, DWORD PTR [rax]
 	movss	DWORD PTR [rax+32], xmm0
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 
-; 222  :         MasterReverb->setReverbSpread(shim_spread);
+; 252  :         MasterReverb->setReverbSpread(shim_spread);
 
-	mov	rax, QWORD PTR [rcx+296]
+	mov	rax, QWORD PTR [rcx+312]
 ; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 
-; 214  :     freeverb_spread = spread;
+; 213  :     freeverb_spread = spread;
 
-	movss	xmm2, DWORD PTR [rcx+280]
+	movss	xmm2, DWORD PTR [rcx+268]
 	movss	DWORD PTR [rax+20], xmm2
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 
-; 250  :     return minvalue + value * (maxValue - minvalue);
+; 23   :     return minvalue + value * (maxValue - minvalue);
 
 	addss	xmm2, xmm2
 	subss	xmm2, xmm4
+; File E:\FoxSuite\fox-suite-blocks\src\Freeverb.cpp
 
-; 299  :     wet2 = freeverb_wet * (1 - width) / 2.0;
+; 282  :     wet2 = freeverb_wet * (1 - width) / 2.0;
 
 	subss	xmm1, xmm2
 	movaps	xmm0, xmm2
 	addss	xmm0, xmm4
 
-; 300  :     dry = (1.0 - freeverb_wet);
+; 283  :     dry = (1.0 - freeverb_wet);
 
 	subss	xmm4, DWORD PTR [rax]
 	mulss	xmm1, DWORD PTR [rax]
@@ -1894,97 +1242,319 @@ $LN26:
 	movss	DWORD PTR [rax+24], xmm0
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 
-; 223  :         break;
+; 253  :         break;
 
-	jmp	SHORT $LN9@setParamet
+	jmp	$LN18@setParamet
 $LN7@setParamet:
 
-; 209  :     }    
-; 210  :     case Param_damping:
-; 211  :     {
-; 212  :         shim_damping = value;
-; 213  :         float dampingFrequency = mapValueIntoRange(1.0 - shim_damping, MIN_LPF_FREQUENCY, MAX_LPF_FREQUENCY);
+; 239  :     }    
+; 240  :     case Param_damping:
+; 241  :     {
+; 242  :         shim_damping = value;
+; 243  :         float dampingFrequency = mapValueIntoRange(1.0 - shim_damping, MIN_LPF_FREQUENCY, MAX_LPF_FREQUENCY);
 
 	movss	xmm6, DWORD PTR __real@3f800000
 	subss	xmm6, xmm2
-	movss	DWORD PTR [rcx+276], xmm2
+	movss	DWORD PTR [rcx+264], xmm2
 
-; 214  :         BranchReverb->setReverbDampingFrequency(dampingFrequency);
+; 244  :         BranchReverb->setReverbDampingFrequency(dampingFrequency);
 
-	mov	rcx, QWORD PTR [rcx+288]
-; File E:\FoxSuite\fox-suite-blocks\src\utils.cpp
+	mov	rcx, QWORD PTR [rcx+304]
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
 
-; 5    :     return minvalue + value * (maxValue - minvalue);
+; 23   :     return minvalue + value * (maxValue - minvalue);
 
 	mulss	xmm6, DWORD PTR __real@46944800
 	addss	xmm6, DWORD PTR __real@41a00000
 ; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
 
-; 214  :         BranchReverb->setReverbDampingFrequency(dampingFrequency);
+; 244  :         BranchReverb->setReverbDampingFrequency(dampingFrequency);
 
 	movaps	xmm1, xmm6
 	call	?setReverbDampingFrequency@Freeverb@@QEAAXM@Z ; Freeverb::setReverbDampingFrequency
 
-; 215  :         MasterReverb->setReverbDampingFrequency(dampingFrequency);
+; 245  :         MasterReverb->setReverbDampingFrequency(dampingFrequency);
 
-	mov	rcx, QWORD PTR [rbx+296]
+	mov	rcx, QWORD PTR [rdi+312]
 	movaps	xmm1, xmm6
 	call	?setReverbDampingFrequency@Freeverb@@QEAAXM@Z ; Freeverb::setReverbDampingFrequency
 
-; 216  :         break;
+; 246  :         break;
 
-	jmp	SHORT $LN9@setParamet
+	jmp	$LN18@setParamet
 $LN6@setParamet:
 
-; 202  :     }
-; 203  :     case Param_decay:
-; 204  :     {
-; 205  :         shim_decay = value * MAX_REVERB_DECAY_IN_SECONDS;
+; 232  :     }
+; 233  :     case Param_decay:
+; 234  :     {
+; 235  :         shim_decay = value * MAX_REVERB_DECAY_IN_SECONDS;
 
 	mulss	xmm2, DWORD PTR __real@41700000
-	movss	DWORD PTR [rcx+272], xmm2
+	movss	DWORD PTR [rcx+260], xmm2
 
-; 206  :         //BranchReverb->setReverbDecayInSeconds(shim_decay);
-; 207  :         MasterReverb->setReverbDecayInSeconds(shim_decay);
+; 236  :         //BranchReverb->setReverbDecayInSeconds(shim_decay);
+; 237  :         MasterReverb->setReverbDecayInSeconds(shim_decay);
 
 	movaps	xmm1, xmm2
-	mov	rcx, QWORD PTR [rcx+296]
+	mov	rcx, QWORD PTR [rcx+312]
 	call	?setReverbDecayInSeconds@Freeverb@@QEAAXM@Z ; Freeverb::setReverbDecayInSeconds
 
-; 208  :         break;
+; 238  :         break;
 
-	jmp	SHORT $LN9@setParamet
-$LN5@setParamet:
-
-; 196  :         break;
-; 197  :     }
-; 198  :     case Param_shimmer:
-; 199  :     {
-; 200  :         shim_shimmer = value;
-
-	movss	DWORD PTR [rcx+268], xmm2
-
-; 201  :         break;
-
-	jmp	SHORT $LN9@setParamet
-$LN4@setParamet:
-
-; 193  :     case Param_wet:
-; 194  :     {
-; 195  :         shim_wet = value;        
-
-	movss	DWORD PTR [rcx+264], xmm2
+	jmp	$LN18@setParamet
 $LN9@setParamet:
 
-; 224  :     }
-; 225  :     default:
-; 226  :         break;
-; 227  :     }
-; 228  : }
+; 254  :     }
+; 255  :     case Param_shimIntrvals:
+; 256  :     {        
+; 257  :         if (value == 1)
 
+	ucomiss	xmm2, DWORD PTR __real@3f800000
+	jne	SHORT $LN10@setParamet
+
+; 258  :             value = 0.99; // if value = 1, then pitIdx = NUM_OF_PITCH_INTRVL_ALLOWED + 1 -> outside of array boundaries
+
+	movss	xmm2, DWORD PTR __real@3f7d70a4
+$LN10@setParamet:
+
+; 259  :         shim_intervals = value;
+
+	movss	DWORD PTR [rcx+256], xmm2
+
+; 260  :         int pitIdx = shim_intervals / DELTA_PARAMETER_BETWEEN_INTERVALS;
+; 261  :         PitchShift_1octL->setPitchShift(INTERVALS_IN_SEMITONES_PITCH1[pitIdx]);
+
+	lea	rsi, OFFSET FLAT:__ImageBase
+	mulss	xmm2, DWORD PTR __real@41200000
+	mov	rcx, QWORD PTR [rcx+320]
+	cvttss2si eax, xmm2
+	movsxd	rbx, eax
+	movss	xmm1, DWORD PTR ?INTERVALS_IN_SEMITONES_PITCH1@@3QBMB[rsi+rbx*4]
+	cvtps2pd xmm1, xmm1
+	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
+	movss	xmm1, DWORD PTR ?INTERVALS_IN_SEMITONES_PITCH1@@3QBMB[rsi+rbx*4]
+
+; 262  :         PitchShift_1octR->setPitchShift(INTERVALS_IN_SEMITONES_PITCH1[pitIdx]);
+
+	mov	rcx, QWORD PTR [rdi+328]
+	cvtps2pd xmm1, xmm1
+	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
+	movss	xmm1, DWORD PTR ?INTERVALS_IN_SEMITONES_PITCH2@@3QBMB[rsi+rbx*4]
+
+; 263  :         PitchShift_2octL->setPitchShift(INTERVALS_IN_SEMITONES_PITCH2[pitIdx]);
+
+	mov	rcx, QWORD PTR [rdi+336]
+	cvtps2pd xmm1, xmm1
+	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
+	movss	xmm1, DWORD PTR ?INTERVALS_IN_SEMITONES_PITCH2@@3QBMB[rsi+rbx*4]
+
+; 264  :         PitchShift_2octR->setPitchShift(INTERVALS_IN_SEMITONES_PITCH2[pitIdx]);
+
+	mov	rcx, QWORD PTR [rdi+344]
+	cvtps2pd xmm1, xmm1
+	call	?setPitchShift@PSMVocoder@@QEAAXN@Z	; PSMVocoder::setPitchShift
+
+; 265  :         break;
+
+	jmp	$LN18@setParamet
+$LN5@setParamet:
+
+; 227  :     }
+; 228  :     case Param_shimmer:
+; 229  :     {
+; 230  :         shim_shimmer = value;
+
+	movss	DWORD PTR [rcx+252], xmm2
+
+; 231  :         break;
+
+	jmp	$LN18@setParamet
+$LN4@setParamet:
+
+; 223  :     case Param_wet:
+; 224  :     {
+; 225  :         shim_wet = value;        
+
+	movss	DWORD PTR [rcx+248], xmm2
+
+; 226  :         break;
+
+	jmp	$LN18@setParamet
+$LN11@setParamet:
+
+; 266  :     }
+; 267  : 
+; 268  :     // --- DEVELOPER PARAMETERS 
+; 269  :     case Param_brDelLength:
+; 270  :     {
+; 271  :         dev_BrDelLength = value * MAX_BRANCH_DELAY_LENGTH_MS;
+
+	mulss	xmm2, DWORD PTR __real@43fa0000
+	movss	DWORD PTR [rcx+272], xmm2
+
+; 272  :         BranchDelay->setDelayInmsec(dev_BrDelLength);
+
+	mov	rcx, QWORD PTR [rcx+352]
+	movd	xmm0, DWORD PTR [rcx+16]
+; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
+
+; 130  : 	if (dly_delayInmsec > dly_lineLengthInmsec)
+
+	cvtdq2ps xmm0, xmm0
+	movss	DWORD PTR [rcx+24], xmm2
+	comiss	xmm2, xmm0
+	jbe	SHORT $LN36@setParamet
+
+; 131  : 		dly_delayInmsec = dly_lineLengthInmsec;
+
+	movss	DWORD PTR [rcx+24], xmm0
+$LN36@setParamet:
+
+; 132  : 
+; 133  : 	// Update parameters based on new delay length
+; 134  : 	updateParameters();
+
+	call	?updateParameters@Delay@@QEAAXXZ	; Delay::updateParameters
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+
+; 273  :         break;
+
+	jmp	$LN18@setParamet
+$LN20@setParamet:
+
+; 222  :     switch (index) {
+
+	sub	edx, 7
+	je	$LN12@setParamet
+	sub	edx, 1
+	je	SHORT $LN13@setParamet
+	sub	edx, 1
+	je	SHORT $LN16@setParamet
+	sub	edx, 1
+	je	SHORT $LN15@setParamet
+	sub	edx, 1
+	je	SHORT $LN14@setParamet
+	cmp	edx, 1
+	jne	$LN18@setParamet
+
+; 301  :     }
+; 302  :     case Param_enMsRev:
+; 303  :     {
+; 304  :         dev_enableMasterRev = value;
+
+	movss	DWORD PTR [rcx+296], xmm2
+
+; 305  :         break;
+
+	jmp	SHORT $LN18@setParamet
+$LN14@setParamet:
+
+; 286  :     }
+; 287  :     case Param_enBrDel:
+; 288  :     {
+; 289  :         dev_enableBranchDel = value;
+
+	movss	DWORD PTR [rcx+292], xmm2
+
+; 290  :         break;
+
+	jmp	SHORT $LN18@setParamet
+$LN15@setParamet:
+
+; 291  :     }
+; 292  :     case Param_enBrRev:
+; 293  :     {
+; 294  :         dev_enableBranchRev = value;
+
+	movss	DWORD PTR [rcx+288], xmm2
+
+; 295  :         break;
+
+	jmp	SHORT $LN18@setParamet
+$LN16@setParamet:
+
+; 296  :     }
+; 297  :     case Param_enPitch:
+; 298  :     {
+; 299  :         dev_enablePitchShift = value;
+
+	movss	DWORD PTR [rcx+284], xmm2
+
+; 300  :         break;
+
+	jmp	SHORT $LN18@setParamet
+$LN13@setParamet:
+
+; 279  :         break;
+; 280  :     }
+; 281  :     case Param_brDelDamp:
+; 282  :     {
+; 283  :         dev_BrDelDamp = value;
+; 284  :         BranchDelay->setCutoffFrequency(mapValueIntoRange(1.0-dev_BrDelDamp, MIN_LPF_FREQUENCY, MAX_LPF_FREQUENCY));
+
+	movss	xmm0, DWORD PTR __real@3f800000
+	movss	DWORD PTR [rcx+280], xmm2
+	subss	xmm0, xmm2
+	mov	rcx, QWORD PTR [rcx+352]
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
+
+; 23   :     return minvalue + value * (maxValue - minvalue);
+
+	mulss	xmm0, DWORD PTR __real@46944800
+	addss	xmm0, DWORD PTR __real@41a00000
+; File E:\FoxSuite\fox-suite-blocks\src\LPCombFilter.cpp
+
+; 30   : 	lpcf_cutoffFreq = cutoffFreq;
+
+	movss	DWORD PTR [rcx+80], xmm0
+
+; 31   : 
+; 32   : 	// set LPF cutoff frequency to the inserted value
+; 33   : 	lpcf_feedbackLPF->setCutoffFrequency(lpcf_cutoffFreq);
+
+	mov	rcx, QWORD PTR [rcx+72]
+; File E:\FoxSuite\fox-suite-blocks\src\LPFButterworth.cpp
+
+; 40   : 	lpf_cutoffFreq = cutoffFreq;
+
+	movss	DWORD PTR [rcx+8], xmm0
+
+; 41   : 
+; 42   : 	// update lpf gains
+; 43   : 	updateGains();
+
+	call	?updateGains@LPFButterworth@@QEAAXXZ	; LPFButterworth::updateGains
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+
+; 285  :         break;
+
+	jmp	SHORT $LN18@setParamet
+$LN12@setParamet:
+; File E:\FoxSuite\fox-suite-blocks\include\utils.h
+
+; 23   :     return minvalue + value * (maxValue - minvalue);
+
+	mulss	xmm2, DWORD PTR __real@3f59999a
+; File E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp
+
+; 278  :         BranchDelay->setFeedback(dev_BrDelFeedback);
+
+	mov	rax, QWORD PTR [rcx+352]
+	movss	DWORD PTR [rcx+276], xmm2
+	movss	DWORD PTR [rax+56], xmm2
+$LN18@setParamet:
+
+; 306  :     }
+; 307  :     default:
+; 308  :         break;
+; 309  :     }
+; 310  : }
+
+	mov	rbx, QWORD PTR [rsp+64]
+	mov	rsi, QWORD PTR [rsp+72]
 	movaps	xmm6, XMMWORD PTR [rsp+32]
 	add	rsp, 48					; 00000030H
-	pop	rbx
+	pop	rdi
 	ret	0
 ?setParameter@Shimmer@@UEAAXHM@Z ENDP			; Shimmer::setParameter
 _TEXT	ENDS

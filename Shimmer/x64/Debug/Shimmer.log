@@ -6,31 +6,43 @@ E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h(820,12): warning C4018: '<=': 
 E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h(824,17): warning C4018: '<': errata corrispondenza tra signed e unsigned
 E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h(830,21): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
 E:\FoxSuite\fox-suite-blocks\include\PSMVocoder.h(833,61): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(20,1): warning C4005: 'NUM_ALLPASS_FILTERS_OUT': ridefinizione macro
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(18,1): warning C4005: 'NUM_ALLPASS_FILTERS_OUT': ridefinizione macro
 E:\FoxSuite\fox-suite-blocks\include\Freeverb.h(4): message : vedere la precedente definizione di 'NUM_ALLPASS_FILTERS_OUT'
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(21,1): warning C4005: 'MAX_LPF_FREQUENCY': ridefinizione macro
-E:\FoxSuite\fox-suite-blocks\include\Freeverb.h(5): message : vedere la precedente definizione di 'MAX_LPF_FREQUENCY'
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(54,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(55,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(56,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.h(57,41): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(47,24): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(101,30): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(114,33): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(115,33): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(120,32): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(145,68): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(146,68): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(150,68): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(151,68): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(205,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(213,56): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(249,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(425,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(12,40): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(12,35): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(13,40): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(13,35): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(14,40): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(14,35): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(15,40): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(15,35): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(16,36): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(16,31): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(17,36): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-blocks\include\utils.h(17,31): warning C4244: 'inizializzazione': conversione da 'double' a 'const float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(63,24): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(112,30): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(115,58): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(127,33): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(128,33): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(133,32): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(161,72): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(162,72): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(165,72): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(166,72): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(235,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(243,56): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(260,20): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(271,33): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(284,62): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(331,28): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(353,33): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(463,20): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\FoxSuite\fox-suite-projects\Shimmer\Shimmer.cpp(633,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
      Creazione della libreria E:\FoxSuite\fox-suite-projects\Shimmer\x64\Debug\Shimmer.lib e dell'oggetto E:\FoxSuite\fox-suite-projects\Shimmer\x64\Debug\Shimmer.exp
   Generazione codice in corso...
-  12 of 321 functions ( 3.7%) were compiled, the rest were copied from previous compilation.
+  1 of 343 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Generazione codice terminata
   Shimmer.vcxproj -> E:\FoxSuite\fox-suite-projects\Shimmer\x64\Debug\Shimmer.dll

@@ -9,10 +9,17 @@
 #define _USE_MATH_DEFINES
 #include <stdlib.h>
 #include <math.h>
+#include "utils.h"
 
 /*--------------------------------------------------------------------*/
 #define MAX_REVERB_DECAY_IN_SECONDS 15.0
 #define NUM_PRESETS 5
+#define MAX_BRANCH_DELAY_LENGTH_MS 500.0
+#define NUM_OF_PITCH_INTERVALS_ALLOWED 10
+const float DELTA_PARAMETER_BETWEEN_INTERVALS = 1.0/NUM_OF_PITCH_INTERVALS_ALLOWED;
+char* INTERVALS_NAMES_STRING[NUM_OF_PITCH_INTERVALS_ALLOWED] = { "2nd Maj", "3rd Min", "3rd Maj", "4th Per", "5th Per", "6th Maj", "7th Maj", "1st Oct", "1 Oct+5", "1+2 Oct"};
+const float INTERVALS_IN_SEMITONES_PITCH1[NUM_OF_PITCH_INTERVALS_ALLOWED] = {2.0, 3.0, 4.0, 5.0, 7.0, 9.0, 11.0, 12.0, 12.0, 12.0};
+const float INTERVALS_IN_SEMITONES_PITCH2[NUM_OF_PITCH_INTERVALS_ALLOWED] = {  0,   0,   0,   0,   0,   0,    0,    0,   19,   24};
 /*--------------------------------------------------------------------*/
 
 
@@ -43,6 +50,15 @@ void Shimmer::InitPlugin()
     // initialize reverb plug-in parameters
     InitPresets();
 
+    // init dev parameters
+    dev_BrDelDamp = 0.0;
+    dev_BrDelLength = 100.0;
+    dev_BrDelFeedback = 0.0;
+    dev_enableBranchDel = 1.0;
+    dev_enableBranchRev = 1.0;
+    dev_enablePitchShift = 1.0;
+    dev_enableMasterRev = 1.0;
+
     // get current sample rate
     int currSampleRate = getSampleRate();
 
@@ -54,11 +70,6 @@ void Shimmer::InitPlugin()
     // init MasterReverb
     MasterReverb = new Freeverb();
     MasterReverb->init(currSampleRate, 1.0, shim_decay, shim_damping, 0.7, shim_spread, 0.0);
-
-    /*.......................................*/
-    // init PitchShifters
-    //PitchShift_1oct = new PitchShifter();
-    //PitchShift_2oct = new PitchShifter();
 
     /*.......................................*/
     // init PSMVocoder
@@ -97,9 +108,11 @@ void Shimmer::InitPlugin()
 
     /*.......................................*/
     // init Branch Delay
-    BranchDelay = new Delay();
+    BranchDelay = new LPCombFilter();
     BranchDelay->init(500.0, sampleRate);
-    BranchDelay->setDelayInmsec(100.0);
+    BranchDelay->setDelayInmsec(dev_BrDelLength);
+    BranchDelay->setFeedback(dev_BrDelFeedback);
+    BranchDelay->setCutoffFrequency(mapValueIntoRange(1.0-dev_BrDelDamp, MIN_LPF_FREQUENCY, MAX_LPF_FREQUENCY));
 }
 /*--------------------------------------------------------------------*/
 
@@ -135,45 +148,62 @@ void Shimmer::processReplacing(float** inputs, float** outputs, VstInt32 sampleF
 
     // Cycle over the sample frames number
     for (int i = 0; i < sampleFrames; i++) {
+
         // Create arrays for Pitch Shifters processing
         float pitch_input[2] = {inL[i], inR[i]};
         float pitch_output_1oct[2] = {0.0, 0.0};
         float pitch_output_2oct[2] = {0.0, 0.0};
+        float pitch_summed_output[2] = { pitch_input[0], pitch_input[1] };
 
-        // Process pitch shifting 1 octave
-        //PitchShift_1oct->processAudio(pitch_input, pitch_output_1oct);
-        pitch_output_1oct[0] = PitchShift_1octL->processAudioSample(pitch_input[0]);
-        pitch_output_1oct[1] = PitchShift_1octR->processAudioSample(pitch_input[1]);
+        // --- Pitch Shifting
+        if (dev_enablePitchShift > 0.5) {
+            // Process pitch shifting 1 octave
+            pitch_output_1oct[0] = PitchShift_1octL->processAudioSample(pitch_input[0]);
+            pitch_output_1oct[1] = PitchShift_1octR->processAudioSample(pitch_input[1]);
 
-        // Process pitch shifting 2 octaves
-        //PitchShift_2oct->processAudio(pitch_input, pitch_output_2oct);
-        pitch_output_2oct[0] = PitchShift_2octL->processAudioSample(pitch_input[0]);
-        pitch_output_2oct[1] = PitchShift_2octR->processAudioSample(pitch_input[1]);
+            // Process pitch shifting 2 octaves
+            pitch_output_2oct[0] = PitchShift_2octL->processAudioSample(pitch_input[0]);
+            pitch_output_2oct[1] = PitchShift_2octR->processAudioSample(pitch_input[1]);
 
-        // Sum outputs
-        float pitch_summed_output[2] = {pitch_output_1oct[0] + pitch_output_2oct[0], 
-                                        pitch_output_1oct[1] + pitch_output_2oct[1]};
+            // Sum outputs
+            pitch_summed_output[0] = pitch_output_1oct[0] + pitch_output_2oct[0];
+            pitch_summed_output[1] = pitch_output_1oct[1] + pitch_output_2oct[1];
+        }       
 
-        // Create arrays for BranchReverb processing
-        float rev_output[2] = { 0.0, 0.0 };
+        // --- Branch Reverb
+        float rev_output[2] = { pitch_summed_output[0], pitch_summed_output[1] };
 
-        // Process BranchReverb
-        BranchReverb->processAudio(pitch_summed_output, rev_output);
+        if (dev_enableBranchRev > 0.5) {
+            // Create arrays for BranchReverb processing
+            //float rev_output[2] = { 0.0, 0.0 };
 
-        // Process Delay
-        float branch_outL = BranchDelay->processAudio(rev_output[0]);
-        float branch_outR = BranchDelay->processAudio(rev_output[1]);
-        
+            // Process BranchReverb
+            BranchReverb->processAudio(pitch_summed_output, rev_output);
+        }
+
+        // --- Branch Delay
+        float branch_outL = rev_output[0];
+        float branch_outR = rev_output[1];
+
+        if (dev_enableBranchDel > 0.5) {
+            branch_outL = BranchDelay->processAudio(rev_output[0]);
+            branch_outR = BranchDelay->processAudio(rev_output[1]);
+        }
+
+        // --- Master Reverb
+        // 
         // Sum output to dry input
         float mast_rev_in[2];
         mast_rev_in[0] = shim_shimmer * branch_outL + (1 - shim_shimmer) * inL[i];
         mast_rev_in[1] = shim_shimmer * branch_outR + (1 - shim_shimmer) * inR[i];
 
         // Process master reverb
-        //float mast_rev_in[2] = {branch_outL, branch_outR};
-        float mast_rev_out[2] = {0.0, 0.0};
-        MasterReverb->processAudio(mast_rev_in, mast_rev_out);
-         
+        float mast_rev_out[2] = { mast_rev_in[0], mast_rev_in [1]};
+
+        if (dev_enableMasterRev > 0.5) {
+            MasterReverb->processAudio(mast_rev_in, mast_rev_out);
+        }
+
         // Stereo spread processing + output allocation
         outL[i] = shim_wet * mast_rev_out[0] + (1 - shim_wet) * inL[i];
         outR[i] = shim_wet * mast_rev_out[1] + (1 - shim_wet) * inR[i];
@@ -222,6 +252,58 @@ void Shimmer::setParameter(VstInt32 index, float value)
         MasterReverb->setReverbSpread(shim_spread);
         break;
     }
+    case Param_shimIntrvals:
+    {        
+        if (value == 1)
+            value = 0.99; // if value = 1, then pitIdx = NUM_OF_PITCH_INTRVL_ALLOWED + 1 -> outside of array boundaries
+        shim_intervals = value;
+        int pitIdx = shim_intervals / DELTA_PARAMETER_BETWEEN_INTERVALS;
+        PitchShift_1octL->setPitchShift(INTERVALS_IN_SEMITONES_PITCH1[pitIdx]);
+        PitchShift_1octR->setPitchShift(INTERVALS_IN_SEMITONES_PITCH1[pitIdx]);
+        PitchShift_2octL->setPitchShift(INTERVALS_IN_SEMITONES_PITCH2[pitIdx]);
+        PitchShift_2octR->setPitchShift(INTERVALS_IN_SEMITONES_PITCH2[pitIdx]);
+        break;
+    }
+
+    // --- DEVELOPER PARAMETERS 
+    case Param_brDelLength:
+    {
+        dev_BrDelLength = value * MAX_BRANCH_DELAY_LENGTH_MS;
+        BranchDelay->setDelayInmsec(dev_BrDelLength);
+        break;
+    }
+    case Param_brDelFeedb:
+    {
+        dev_BrDelFeedback = mapValueIntoRange(value, 0.0, 0.85);
+        BranchDelay->setFeedback(dev_BrDelFeedback);
+        break;
+    }
+    case Param_brDelDamp:
+    {
+        dev_BrDelDamp = value;
+        BranchDelay->setCutoffFrequency(mapValueIntoRange(1.0-dev_BrDelDamp, MIN_LPF_FREQUENCY, MAX_LPF_FREQUENCY));
+        break;
+    }
+    case Param_enBrDel:
+    {
+        dev_enableBranchDel = value;
+        break;
+    }
+    case Param_enBrRev:
+    {
+        dev_enableBranchRev = value;
+        break;
+    }
+    case Param_enPitch:
+    {
+        dev_enablePitchShift = value;
+        break;
+    }
+    case Param_enMsRev:
+    {
+        dev_enableMasterRev = value;
+        break;
+    }
     default:
         break;
     }
@@ -259,6 +341,48 @@ float Shimmer::getParameter(VstInt32 index)
         param = shim_spread;
         break;
     }
+    case Param_shimIntrvals:
+    {
+        param = shim_intervals;
+        break;
+    }
+
+    // --- DEVELOPER PARAMETERS
+    case Param_brDelLength:
+    {
+        param = dev_BrDelLength / MAX_BRANCH_DELAY_LENGTH_MS;
+        break;
+    }
+    case Param_brDelFeedb:
+    {
+        param = mapValueOutsideRange(dev_BrDelFeedback, 0.0, 0.85);        
+        break;
+    }
+    case Param_brDelDamp:
+    {
+        param = dev_BrDelDamp;
+        break;
+    }
+    case Param_enBrDel:
+    {
+        param = dev_enableBranchDel;
+        break;
+    }
+    case Param_enBrRev:
+    {
+        param = dev_enableBranchRev;
+        break;
+    }
+    case Param_enPitch:
+    {
+        param = dev_enablePitchShift;
+        break;
+    }
+    case Param_enMsRev:
+    {
+        param = dev_enableMasterRev;
+        break;
+    }
     default:
         break;
     }
@@ -285,6 +409,30 @@ void Shimmer::getParameterLabel(VstInt32 index, char* label)
     case Param_spread:
         vst_strncpy(label, "", kVstMaxParamStrLen);
         break;
+    case Param_shimIntrvals:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_brDelDamp:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_brDelFeedb:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_brDelLength:
+        vst_strncpy(label, "ms", kVstMaxParamStrLen);
+        break;
+    case Param_enBrDel:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_enBrRev:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_enPitch:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
+    case Param_enMsRev:
+        vst_strncpy(label, "", kVstMaxParamStrLen);
+        break;
     default:
         break;
     }
@@ -294,7 +442,7 @@ void Shimmer::getParameterLabel(VstInt32 index, char* label)
 /*--------------------------------------------------------------------*/
 // return reverb parameters values for displaying purposes
 void Shimmer::getParameterDisplay(VstInt32 index, char* text)
-{
+{    
     switch (index) {
     case Param_wet:
         float2string(shim_wet * 10, text, kVstMaxParamStrLen);
@@ -310,6 +458,43 @@ void Shimmer::getParameterDisplay(VstInt32 index, char* text)
         break;
     case Param_spread:
         float2string(shim_spread * 10, text, kVstMaxParamStrLen);
+        break;
+    case Param_shimIntrvals: {
+        int pitIdx = shim_intervals / DELTA_PARAMETER_BETWEEN_INTERVALS;
+        vst_strncpy(text, INTERVALS_NAMES_STRING[pitIdx], kVstMaxParamStrLen);
+        break; }
+    case Param_brDelDamp:
+        float2string(dev_BrDelDamp, text, kVstMaxParamStrLen);
+        break;
+    case Param_brDelFeedb:
+        float2string(dev_BrDelFeedback, text, kVstMaxParamStrLen);
+        break;
+    case Param_brDelLength:
+        float2string(dev_BrDelLength, text, kVstMaxParamStrLen);
+        break;
+    case Param_enBrDel:
+        if (dev_enableBranchDel < 0.5)
+            vst_strncpy(text, "Disabled", kVstMaxParamStrLen);
+        else
+            vst_strncpy(text, "Enabled", kVstMaxParamStrLen);
+        break;
+    case Param_enBrRev:
+        if (dev_enableBranchRev < 0.5)
+            vst_strncpy(text, "Disabled", kVstMaxParamStrLen);
+        else
+            vst_strncpy(text, "Enabled", kVstMaxParamStrLen);
+        break;
+    case Param_enPitch:
+        if (dev_enablePitchShift < 0.5)
+            vst_strncpy(text, "Disabled", kVstMaxParamStrLen);
+        else
+            vst_strncpy(text, "Enabled", kVstMaxParamStrLen);
+        break;
+    case Param_enMsRev:
+        if (dev_enableMasterRev < 0.5)
+            vst_strncpy(text, "Disabled", kVstMaxParamStrLen);
+        else
+            vst_strncpy(text, "Enabled", kVstMaxParamStrLen);
         break;
     default:
         break;
@@ -336,6 +521,30 @@ void Shimmer::getParameterName(VstInt32 index, char* text)
         break;
     case Param_spread:
         vst_strncpy(text, "Spread", kVstMaxParamStrLen);
+        break;
+    case Param_shimIntrvals:
+        vst_strncpy(text, "Intervals", kVstMaxParamStrLen);
+        break;
+    case Param_brDelDamp:
+        vst_strncpy(text, "Delay Damp", kVstMaxParamStrLen);
+        break;
+    case Param_brDelFeedb:
+        vst_strncpy(text, "Delay FB", kVstMaxParamStrLen);
+        break;
+    case Param_brDelLength:
+        vst_strncpy(text, "Delay Leng", kVstMaxParamStrLen);
+        break;
+    case Param_enBrDel:
+        vst_strncpy(text, "Enab BRDel", kVstMaxParamStrLen);
+        break;
+    case Param_enBrRev:
+        vst_strncpy(text, "Enab BRRev", kVstMaxParamStrLen);
+        break;
+    case Param_enPitch:
+        vst_strncpy(text, "Enab PShift", kVstMaxParamStrLen);
+        break;
+    case Param_enMsRev:
+        vst_strncpy(text, "Enab MSRev", kVstMaxParamStrLen);
         break;
     default:
         break;
@@ -407,7 +616,6 @@ void Shimmer::InitPresets()
     shim_shimmer = shim_presets[initIdx].shim_shimmer;
     shim_damping = shim_presets[initIdx].shim_damping;
     shim_spread = shim_presets[initIdx].shim_spread;
-
 }
 /*--------------------------------------------------------------------*/
 
@@ -479,7 +687,7 @@ Shimmer::~Shimmer()
     //Free BranchReverb, delay and pitch shifters
     BranchReverb->~Freeverb();
     MasterReverb->~Freeverb();
-    BranchDelay->~Delay();
+    BranchDelay->~LPCombFilter();
     PitchShift_1octL->~PSMVocoder();
     PitchShift_1octR->~PSMVocoder();
     PitchShift_2octL->~PSMVocoder();

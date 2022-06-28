@@ -56,7 +56,6 @@ rdata$r	SEGMENT
 	DD	imagerel ??_R4LFO@@6B@
 ?_Fake_alloc@std@@3U_Fake_allocator@1@B	ORG $+1		; std::_Fake_alloc
 PUBLIC	?processAudio@LFO@@UEAAMXZ			; LFO::processAudio
-PUBLIC	?linearInterp@LFO@@QEAAMMMMMM@Z			; LFO::linearInterp
 PUBLIC	?setSampleRate@LFO@@UEAAXH@Z			; LFO::setSampleRate
 PUBLIC	?increaseLFOCounter@LFO@@AEAAXXZ		; LFO::increaseLFOCounter
 PUBLIC	?computeIncrement@LFO@@AEAAXXZ			; LFO::computeIncrement
@@ -72,40 +71,10 @@ $pdata$??1LFO@@QEAA@XZ DD imagerel $LN5@LFO
 xdata	SEGMENT
 $unwind$??1LFO@@QEAA@XZ DQ 00006340a00040a01r	; 8.62672e-309
 	DD	07006320aH
-; Function compile flags: /Ogspy
-; File E:\FoxSuite\fox-suite-blocks\src\LFO.cpp
-;	COMDAT ?linearInterp@LFO@@QEAAMMMMMM@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-x1$dead$ = 16
-x2$dead$ = 24
-y1$ = 32
-y2$ = 40
-x$ = 48
-?linearInterp@LFO@@QEAAMMMMMM@Z PROC			; LFO::linearInterp, COMDAT
-
-; 92   : 	float denom = x2 - x1;
-; 93   : 	if (denom == 0)
-; 94   : 		return y1; // should not ever happen
-; 95   : 
-; 96   : 	// calculate decimal position of x
-; 97   : 	float dx = (x - x1) / (x2 - x1);
-; 98   : 
-; 99   : 	// use weighted sum method of interpolating
-; 100  : 	float result = dx * y2 + (1 - dx) * y1;
-
-	movss	xmm0, DWORD PTR __real@3f800000
-	subss	xmm0, DWORD PTR x$[rsp]
-	movss	xmm1, DWORD PTR y2$[rsp]
-	mulss	xmm1, DWORD PTR x$[rsp]
-	mulss	xmm0, xmm3
-	addss	xmm0, xmm1
-
-; 101  : 
-; 102  : 	return result;
-; 103  : }
-
-	ret	0
-?linearInterp@LFO@@QEAAMMMMMM@Z ENDP			; LFO::linearInterp
-_TEXT	ENDS
+?MAX_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_LPF_FREQUENCY_LOG@@YAXXZ ; MAX_LPF_FREQUENCY_LOG$initializer$
+?MIN_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_LPF_FREQUENCY_LOG@@YAXXZ ; MIN_LPF_FREQUENCY_LOG$initializer$
+?MAX_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_HPF_FREQUENCY_LOG@@YAXXZ ; MAX_HPF_FREQUENCY_LOG$initializer$
+?MIN_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_HPF_FREQUENCY_LOG@@YAXXZ ; MIN_HPF_FREQUENCY_LOG$initializer$
+?MAX_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_FREQUENCY_LOG@@YAXXZ ; MAX_FREQUENCY_LOG$initializer$
+?MIN_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_FREQUENCY_LOG@@YAXXZ ; MIN_FREQUENCY_LOG$initializer$
 END

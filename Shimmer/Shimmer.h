@@ -9,19 +9,14 @@
 #include <stdio.h>
 #include "Freeverb.h"
 #include "PitchShifter.h"
-#include "utils.h"
 #include "../vstsdk2.4/public.sdk/source/vst2.x/audioeffectx.h"
 #include <math.h>
 #include "PSMVocoder.h"
-//#include "fxobjects.h"
 
 #define NUM_COMB_FILTERS 8
 #define NUM_ALLPASS_FILTERS_IN 3
 #define NUM_ALLPASS_FILTERS_OUT 2
-#define MAX_LPF_FREQUENCY 19000.0
-#define MIN_LPF_FREQUENCY 20.0
-#define MAX_HPF_FREQUENCY 17000.0
-#define MIN_HPF_FREQUENCY 10.0
+
 
 using namespace std;
 
@@ -29,9 +24,17 @@ using namespace std;
 enum EfxParameter {
 	Param_wet = 0,
 	Param_shimmer,
+	Param_shimIntrvals,
 	Param_decay,
 	Param_damping,
 	Param_spread,
+	Param_brDelLength,
+	Param_brDelFeedb,
+	Param_brDelDamp,
+	Param_enPitch,
+	Param_enBrRev,
+	Param_enBrDel,
+	Param_enMsRev,
 	Param_Count
 };
 
@@ -42,25 +45,27 @@ class Shimmer;
 class ShimmerPresets {
 	friend class Shimmer;
 private:
-	// BranchReverb User Parameters
-	float shim_wet, shim_shimmer, shim_decay, shim_damping, shim_spread;
+	// Shimmer User Parameters
+	float shim_wet, shim_shimmer, shim_intervals, shim_decay, shim_damping, shim_spread; 
+
+	// Shimmer develop parameters
+	float dev_BrDelLength, dev_BrDelFeedback, dev_BrDelDamp;
+	float dev_enablePitchShift, dev_enableBranchRev, dev_enableBranchDel, dev_enableMasterRev;
 	char name[24];
 };
 
 //-------------------------------------------------------------------------------------------------------
-class Shimmer : public AudioEffectX {
-
-	// const parameters
-	const float MAX_LPF_FREQUENCY_LOG = log(MAX_LPF_FREQUENCY);
-	const float MIN_LPF_FREQUENCY_LOG = log(MIN_LPF_FREQUENCY);
-	const float MAX_HPF_FREQUENCY_LOG = log(MAX_HPF_FREQUENCY);
-	const float MIN_HPF_FREQUENCY_LOG = log(MIN_HPF_FREQUENCY);
+class Shimmer : public AudioEffectX {	
 
 	// Initialize ShimmerPresets instance
 	ShimmerPresets* shim_presets;
 	
-	// Shimemr User Parameters
-	float shim_wet, shim_shimmer, shim_decay, shim_damping, shim_spread;
+	// Shimmer User Parameters
+	float shim_wet, shim_shimmer, shim_intervals, shim_decay, shim_damping, shim_spread;
+
+	// Shimmer developer parameters
+	float dev_BrDelLength, dev_BrDelFeedback, dev_BrDelDamp;
+	float dev_enablePitchShift, dev_enableBranchRev, dev_enableBranchDel, dev_enableMasterRev;
 
 	// Freeverb
 	Freeverb* BranchReverb;	
@@ -73,7 +78,7 @@ class Shimmer : public AudioEffectX {
 	PSMVocoder* PitchShift_2octR;
 
 	// Delay
-	Delay* BranchDelay;
+	LPCombFilter* BranchDelay;
 
 	void InitPlugin();	
 	void InitPresets();

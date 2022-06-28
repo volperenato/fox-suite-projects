@@ -78,21 +78,4 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?processAudio@CombFilter@@UEAAMM@Z DQ 00000420400010401r ; 3.58617e-310
-; Function compile flags: /Ogspy
-; File E:\FoxSuite\fox-suite-blocks\src\CombFilter.cpp
-;	COMDAT ?setFeedback@CombFilter@@QEAAXM@Z
-_TEXT	SEGMENT
-this$ = 8
-g$dead$ = 16
-?setFeedback@CombFilter@@QEAAXM@Z PROC			; CombFilter::setFeedback, COMDAT
-
-; 18   : 	cf_feedbackGain = g;
-
-	and	DWORD PTR [rcx+56], 0
-
-; 19   : }
-
-	ret	0
-?setFeedback@CombFilter@@QEAAXM@Z ENDP			; CombFilter::setFeedback
-_TEXT	ENDS
 END

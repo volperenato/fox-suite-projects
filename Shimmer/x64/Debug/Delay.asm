@@ -8,6 +8,7 @@ PUBLIC	??_R4Delay@@6B@					; Delay::`RTTI Complete Object Locator'
 PUBLIC	??_7Delay@@6B@					; Delay::`vftable'
 EXTRN	__imp_malloc:PROC
 EXTRN	__imp_memset:PROC
+EXTRN	__imp_log:PROC
 EXTRN	??3@YAXPEAX_K@Z:PROC				; operator delete
 EXTRN	__imp_log10:PROC
 ?_Fake_alloc@std@@3U_Fake_allocator@1@B	ORG $+1		; std::_Fake_alloc
@@ -28,12 +29,12 @@ rdata$r	SEGMENT
 	DD	imagerel ??_R3Delay@@8
 	DD	imagerel ??_R4Delay@@6B@
 PUBLIC	?processAudio@Delay@@UEAAMM@Z			; Delay::processAudio
-PUBLIC	?linearInterp@Delay@@QEAAMMMMMM@Z		; Delay::linearInterp
 PUBLIC	?setMakeUpGaindB@Delay@@QEAAXM@Z		; Delay::setMakeUpGaindB
 PUBLIC	?setDelayInmsec@Delay@@QEAAXM@Z			; Delay::setDelayInmsec
 PUBLIC	?reset@Delay@@QEAAXXZ				; Delay::reset
 PUBLIC	?updateParameters@Delay@@QEAAXXZ		; Delay::updateParameters
 PUBLIC	?initDelayLine@Delay@@QEAAXXZ			; Delay::initDelayLine
+PUBLIC	?linearInterp@@YAMMMMMM@Z			; linearInterp
 PUBLIC	?readFromDelayLine@Delay@@QEAAMXZ		; Delay::readFromDelayLine
 PUBLIC	?writeToDelayLine@Delay@@QEAAXM@Z		; Delay::writeToDelayLine
 PUBLIC	?updateIndices@Delay@@QEAAXXZ			; Delay::updateIndices
@@ -77,6 +78,9 @@ pdata	SEGMENT
 $pdata$??1Delay@@QEAA@XZ DD imagerel $LN6@Delay
 	DD	imagerel $LN6@Delay+49
 	DD	imagerel $unwind$??1Delay@@QEAA@XZ
+pdata	ENDS
+CRT$XCU	SEGMENT
+?MAX_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_LPF_FREQUENCY_LOG@@YAXXZ ; MAX_LPF_FREQUENCY_LOG$initializer$
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??1Delay@@QEAA@XZ DQ 03002320600020601r	; 1.96423e-77
@@ -101,60 +105,47 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?processAudio@Delay@@UEAAMM@Z DQ 00000420400010401r ; 3.58617e-310
-; Function compile flags: /Ogspy
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-;	COMDAT ?setMakeUpGaindB@Delay@@QEAAXM@Z
-_TEXT	SEGMENT
-this$ = 8
-gaindB$dead$ = 16
-?setMakeUpGaindB@Delay@@QEAAXM@Z PROC			; Delay::setMakeUpGaindB, COMDAT
-
-; 139  : 	// set make up gain [dB]
-; 140  : 	dly_makeUpGaindB = gaindB;
-
-	mov	DWORD PTR [rcx+48], -1052770304		; c1400000H
-
-; 141  : 
-; 142  : 	// update parameters
-; 143  : 	updateParameters();
-
-	jmp	?updateParameters@Delay@@QEAAXXZ	; Delay::updateParameters
-?setMakeUpGaindB@Delay@@QEAAXM@Z ENDP			; Delay::setMakeUpGaindB
-_TEXT	ENDS
-; Function compile flags: /Ogspy
-; File E:\FoxSuite\fox-suite-blocks\src\Delay.cpp
-;	COMDAT ?linearInterp@Delay@@QEAAMMMMMM@Z
-_TEXT	SEGMENT
-this$dead$ = 8
-x1$dead$ = 16
-x2$dead$ = 24
-y1$ = 32
-y2$ = 40
-x$ = 48
-?linearInterp@Delay@@QEAAMMMMMM@Z PROC			; Delay::linearInterp, COMDAT
-
-; 203  : 	float denom = x2 - x1;
-; 204  : 	if (denom == 0)
-; 205  : 		return y1; // should not ever happen
-; 206  : 
-; 207  : 	// calculate decimal position of x
-; 208  : 	float dx = (x - x1) / (x2 - x1);
-; 209  : 
-; 210  : 	// use weighted sum method of interpolating
-; 211  : 	float result = dx * y2 + (1 - dx) * y1;
-
-	movss	xmm0, DWORD PTR __real@3f800000
-	subss	xmm0, DWORD PTR x$[rsp]
-	movss	xmm1, DWORD PTR y2$[rsp]
-	mulss	xmm1, DWORD PTR x$[rsp]
-	mulss	xmm0, xmm3
-	addss	xmm0, xmm1
-
-; 212  : 
-; 213  : 	return result;
-; 214  : }
-
-	ret	0
-?linearInterp@Delay@@QEAAMMMMMM@Z ENDP			; Delay::linearInterp
-_TEXT	ENDS
+CRT$XCU	SEGMENT
+?MIN_LPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_LPF_FREQUENCY_LOG@@YAXXZ ; MIN_LPF_FREQUENCY_LOG$initializer$
+CRT$XCU	ENDS
+CRT$XCU	SEGMENT
+?MAX_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_HPF_FREQUENCY_LOG@@YAXXZ ; MAX_HPF_FREQUENCY_LOG$initializer$
+CRT$XCU	ENDS
+CRT$XCU	SEGMENT
+?MIN_HPF_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_HPF_FREQUENCY_LOG@@YAXXZ ; MIN_HPF_FREQUENCY_LOG$initializer$
+CRT$XCU	ENDS
+CRT$XCU	SEGMENT
+?MAX_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMAX_FREQUENCY_LOG@@YAXXZ ; MAX_FREQUENCY_LOG$initializer$
+CRT$XCU	ENDS
+CRT$XCU	SEGMENT
+?MIN_FREQUENCY_LOG$initializer$@@3P6AXXZEA DQ FLAT:??__EMIN_FREQUENCY_LOG@@YAXXZ ; MIN_FREQUENCY_LOG$initializer$
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
+CRT$XCU	ENDS
 END

@@ -68,9 +68,6 @@ pdata	SEGMENT
 $pdata$??__EkCTCorrFactorZero@@YAXXZ DD imagerel ??__EkCTCorrFactorZero@@YAXXZ
 	DD	imagerel ??__EkCTCorrFactorZero@@YAXXZ+39
 	DD	imagerel $unwind$??__EkCTCorrFactorZero@@YAXXZ
-pdata	ENDS
-CRT$XCU	SEGMENT
-?kCTCorrFactorZero$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorZero@@YAXXZ ; kCTCorrFactorZero$initializer$
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$??__EkCTCorrFactorZero@@YAXXZ DQ 00000420400010401r ; 3.58617e-310
@@ -108,21 +105,9 @@ xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$?doInverseFFT@PhaseVocoder@@QEAAXXZ DQ 03002320600020601r ; 1.96423e-77
-CRT$XCU	SEGMENT
+?kCTCorrFactorZero$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorZero@@YAXXZ ; kCTCorrFactorZero$initializer$
 ?kCTCorrFactorUnity$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorUnity@@YAXXZ ; kCTCorrFactorUnity$initializer$
-CRT$XCU	ENDS
-CRT$XCU	SEGMENT
 ?kCTCorrFactorAntiUnity$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiUnity@@YAXXZ ; kCTCorrFactorAntiUnity$initializer$
-CRT$XCU	ENDS
-CRT$XCU	SEGMENT
 ?kCTCorrFactorAntiLog$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiLog@@YAXXZ ; kCTCorrFactorAntiLog$initializer$
-CRT$XCU	ENDS
-CRT$XCU	SEGMENT
 ?kCTCorrFactorAntiLogScale$initializer$@@3P6AXXZEA DQ FLAT:??__EkCTCorrFactorAntiLogScale@@YAXXZ ; kCTCorrFactorAntiLogScale$initializer$
-CRT$XCU	ENDS
-CRT$XCU	ENDS
-CRT$XCU	ENDS
-CRT$XCU	ENDS
-CRT$XCU	ENDS
-CRT$XCU	ENDS
 END

@@ -168,7 +168,6 @@
     <ClCompile Include="..\..\fox-suite-blocks\src\PitchShifter.cpp" />
     <ClCompile Include="..\..\fox-suite-blocks\src\PSMVocoder.cpp" />
     <ClCompile Include="..\..\fox-suite-blocks\src\Tremolo.cpp" />
-    <ClCompile Include="..\..\fox-suite-blocks\src\utils.cpp" />
     <ClCompile Include="..\..\vst-2.4-sdk\vstsdk2.4\public.sdk\source\vst2.x\audioeffect.cpp" />
     <ClCompile Include="..\..\vst-2.4-sdk\vstsdk2.4\public.sdk\source\vst2.x\audioeffectx.cpp" />
     <ClCompile Include="..\..\vst-2.4-sdk\vstsdk2.4\public.sdk\source\vst2.x\vstplugmain.cpp" />
